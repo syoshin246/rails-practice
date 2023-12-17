@@ -1,0 +1,43 @@
+<%= form_with  model: @board do |form| %>
+<table class="table table-hover boards__table text-center">
+  <p>
+    <thead>
+      <tr>
+        <th>
+          <%= form.label :ネガティブワード%>
+        </th>
+        <th>
+        </th>
+        <th>
+          <%= form.label :ポジティブワード%>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <%= form.text_field :title %>
+          <% if @board.errors.any? %>
+            <%= @board.errors.messages[:title][0] %>
+          <% end %>
+        </td>
+        <td>
+        →
+        </td>
+        <td>
+        <%= form.text_field :title2 %>
+        <% if @board.errors.any? %>
+            <%= @board.errors.messages[:title2][0] %>
+          <% end %>
+        </td>
+    </tbody>
+       
+    </tr>
+  </p>
+
+</table>
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>

@@ -1,0 +1,45 @@
+<%= turbo_frame_tag board do %>
+  <%#= form_with model: board, url: toggle_board_path(board) do |f| %>
+    
+    <div class="row g-3">
+    <tr>
+      <td>
+        <div class="col">
+            <%# f.check_box :completed, 
+            onchange: 'this.form.requestSubmit()' %>
+        
+              <%= board.title %>
+              <%#= link_to '[edit]', edit_board_path(board), data:
+               {turbo_frame: '_top'}  %>
+               <%#= link_to '[destroy]', board_path(board),
+                data: {turbo_method: 'delete', 
+                turbo_confirm: 'Are you sure?'}%>
+          <%#= link_to '[destroy]', board_path(board),  
+          {turbo-method: :delete,form:{data:{turbo-confirm: 'Are you sure?'}}  }%>
+ 
+        </div>
+      </td>
+      <td>
+        →
+      </td>
+      <td>  
+        <div class="col">
+              <%# f.check_box :completed, 
+            onchange: 'this.form.requestSubmit()' %>
+        
+              <%= board.title2 %>
+              
+
+      </td>
+      <td>
+        <%= button_to '[編集]', edit_board_path(board), 
+              data: {turbo_frame: '_top'}  %>
+             <%= button_to '[削除]', board_path(board),
+                data: {turbo_method: 'delete', 
+                turbo_confirm: 'Are you sure?'}%>
+      </td>
+    </tr>
+        </div>
+    </div>
+  <%# end %>
+<% end %>
