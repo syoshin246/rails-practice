@@ -69,3 +69,5 @@ group :development do
   # gem "spring"
 end
 
+#環境変数を利用するために、dotenv-railsというgemをインストールします。
+# gem 'dotenv-rails'

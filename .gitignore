@@ -29,3 +29,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+#.envファイルをgithubに上げてしまうと元も子も無いので、gitignoreに追記します。
+.env
