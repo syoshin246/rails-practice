@@ -1,0 +1,4 @@
+2024-01-03 10:26:05.582 [info] update#ctor - updates are disabled due to running as Admin in user setup
+2024-01-03 10:26:10.596 [info] Starting extension host with pid 1096 (fork() took 81 ms).
+2024-01-03 10:26:13.410 [info] Waiting for extension host with pid 1096 to exit.
+2024-01-03 10:26:15.603 [info] Extension host with pid 1096 exited with code: 0, signal: null.

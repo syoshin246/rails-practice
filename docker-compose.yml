@@ -13,7 +13,7 @@ services:
     stdin_open: true
 # =========ローカルと本番切り替え===========
     # command: bundle exec puma -C config/puma.rb -e production
-     command: bundle exec puma -C config/puma.rb
+    # command: bundle exec puma -C config/puma.rb
 # ======================================
 
   db:

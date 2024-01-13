@@ -1,0 +1,40 @@
+2024-01-03 10:26:25.553 [info] Extension host with pid 8700 started
+2024-01-03 10:26:25.859 [info] ExtensionService#_doActivateExtension HTMLHint.vscode-htmlhint, startup: false, activationEvent: 'onFileSystem:file'
+2024-01-03 10:26:25.862 [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication, startup: false, activationEvent: 'onAuthenticationRequest:microsoft'
+2024-01-03 10:26:25.863 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2024-01-03 10:26:25.863 [info] ExtensionService#_doActivateExtension mosapride.zenkaku, startup: true, activationEvent: '*'
+2024-01-03 10:26:25.864 [info] ExtensionService#_doActivateExtension xshrim.txt-syntax, startup: true, activationEvent: '*'
+2024-01-03 10:26:28.162 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2024-01-03 10:26:28.163 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-01-03 10:26:28.589 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2024-01-03 10:26:29.002 [info] Eager extensions activated
+2024-01-03 10:26:29.033 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-01-03 10:26:29.034 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onStartupFinished'
+2024-01-03 10:26:29.035 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-01-03 10:26:29.036 [info] ExtensionService#_doActivateExtension ms-vscode-remote.remote-wsl-recommender, startup: false, activationEvent: 'onStartupFinished'
+2024-01-03 10:26:29.037 [info] ExtensionService#_doActivateExtension dbaeumer.vscode-eslint, startup: false, activationEvent: 'onStartupFinished'
+2024-01-03 10:26:29.038 [info] ExtensionService#_doActivateExtension dsznajder.es7-react-js-snippets, startup: false, activationEvent: 'onStartupFinished'
+2024-01-03 10:26:29.038 [info] ExtensionService#_doActivateExtension esbenp.prettier-vscode, startup: false, activationEvent: 'onStartupFinished'
+2024-01-03 10:26:29.039 [info] ExtensionService#_doActivateExtension ms-vscode-remote.remote-containers, startup: false, activationEvent: 'onStartupFinished'
+2024-01-03 10:26:29.039 [info] ExtensionService#_doActivateExtension ms-vscode-remote.remote-wsl, startup: false, activationEvent: 'onStartupFinished'
+2024-01-03 10:26:29.040 [info] ExtensionService#_doActivateExtension ritwickdey.LiveServer, startup: false, activationEvent: 'onStartupFinished'
+2024-01-03 10:26:32.959 [error] Activating extension ms-vscode-remote.remote-containers failed due to an error:
+2024-01-03 10:26:32.959 [error] Error: Cannot find module 'c:\Users\tachibana\.vscode\extensions\ms-vscode-remote.remote-containers-0.266.1\dist\extension\extension'
+Require stack:
+- c:\Users\tachibana\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\loader.js
+- c:\Users\tachibana\AppData\Local\Programs\Microsoft VS Code\resources\app\out\bootstrap-amd.js
+- c:\Users\tachibana\AppData\Local\Programs\Microsoft VS Code\resources\app\out\bootstrap-fork.js
+	at Module._resolveFilename (node:internal/modules/cjs/loader:987:15)
+	at Module._load (node:internal/modules/cjs/loader:832:27)
+	at c._load (node:electron/js2c/asar_bundle:5:13343)
+	at r._load (c:\Users\tachibana\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\api\node\extensionHostProcess.js:120:13379)
+	at w._load (c:\Users\tachibana\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\api\node\extensionHostProcess.js:115:61900)
+	at v._load (c:\Users\tachibana\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\api\node\extensionHostProcess.js:115:61293)
+	at Module.require (node:internal/modules/cjs/loader:1059:19)
+	at require (node:internal/modules/cjs/helpers:102:18)
+	at Function.r [as __$__nodeRequire] (c:\Users\tachibana\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\loader.js:5:101)
+	at d.pb (c:\Users\tachibana\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\api\node\extensionHostProcess.js:115:63164)
+	at process.processTicksAndRejections (node:internal/process/task_queues:96:5)
+	at async Promise.all (index 0)
+2024-01-03 10:26:32.964 [info] Extension host terminating: parent process 13788 does not exist anymore: kill ESRCH (code: ESRCH) (errno: -4040)
+2024-01-03 10:26:33.042 [info] Extension host with pid 8700 exiting with code 0

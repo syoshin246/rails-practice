@@ -1,0 +1,5 @@
+2024-01-03 10:27:04.967 [warning] [ms-vscode.remote-server]: 'group' 提案プロパティを使用するには、'ms-vscode.remote-server'の viewsWelcome コントリビューションに 'enabledApiProposals: ["contribViewsWelcome"]' が必要です。
+2024-01-03 10:27:07.048 [info] [perf] Render performance baseline is 133ms
+2024-01-03 10:27:13.616 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2024-01-03 10:27:15.405 [info] UNRESPONSIVE extension host: starting to profile NOW
+2024-01-03 10:27:16.544 [warning] UNRESPONSIVE extension host: 'esbenp.prettier-vscode' took 77.6985111662531% of 7.515ms, saved PROFILE here: 'file:///c%3A/Users/TACHIB~1/AppData/Local/Temp/exthost-bc365c.cpuprofile'

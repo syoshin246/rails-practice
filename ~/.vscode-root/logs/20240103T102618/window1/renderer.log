@@ -1,0 +1,6 @@
+2024-01-03 10:26:23.776 [warning] [ms-vscode.remote-server]: The viewsWelcome contribution in 'ms-vscode.remote-server' requires 'enabledApiProposals: ["contribViewsWelcome"]' in order to use the 'group' proposed property.
+2024-01-03 10:26:27.089 [info] [perf] Render performance baseline is 139ms
+2024-01-03 10:26:28.867 [error] Error: Decryption failed.
+2024-01-03 10:26:28.902 [error] SyntaxError: Unexpected token A in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at y.$getPassword (vscode-file://vscode-app/c:/Users/tachibana/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/workbench/workbench.desktop.main.js:1682:41752)

@@ -1,0 +1,5 @@
+2024-01-03 10:26:57.996 [info] update#ctor - updates are disabled due to running as Admin in user setup
+2024-01-03 10:27:02.872 [info] Starting extension host with pid 17932 (fork() took 62 ms).
+2024-01-03 10:27:12.771 [info] Enabling inspect port on extension host with pid 17932.
+2024-01-03 11:18:46.471 [info] Waiting for extension host with pid 17932 to exit.
+2024-01-03 11:18:46.616 [info] Extension host with pid 17932 exited with code: 0, signal: null.

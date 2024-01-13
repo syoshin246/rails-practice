@@ -1,0 +1,4 @@
+2024-01-03 10:26:19.080 [info] update#ctor - updates are disabled due to running as Admin in user setup
+2024-01-03 10:26:23.347 [info] Starting extension host with pid 8700 (fork() took 66 ms).
+2024-01-03 10:26:30.536 [info] Waiting for extension host with pid 8700 to exit.
+2024-01-03 10:26:33.871 [info] Extension host with pid 8700 exited with code: 0, signal: null.
