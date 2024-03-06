@@ -1,6 +1,8 @@
 # ベースとして使用するイメージ名（DockerHubからダウンロードされる）
 FROM ruby:3.2.2-alpine
 
+ENV RAILS_ENV=production
+
 # 利用可能なパッケージのリストを更新するコマンドを実行
 RUN apk update
 
@@ -16,3 +18,7 @@ COPY Gemfile.lock .
 
 # bundle installでGemfileに記述されているgemをインストール
 RUN bundle install
+
+COPY start.sh /start.sh
+RUN chmod 744 /start.sh
+CMD ["sh", "/start.sh"]
