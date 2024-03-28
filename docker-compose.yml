@@ -6,9 +6,9 @@ services:
     # ローカル環境用のコマンド
     #command: sh -c "rm -f tmp/pids/server.pid && rails s -p 3000 -b '0.0.0.0'"
     # =========ローカルと本番切り替え===========
-     # 本番環境用のコマンド
-     command: bundle exec puma -C config/puma.rb -e production
-     #command: bundle exec puma -C config/puma.rb
+    # 本番環境用のコマンド
+    command: bundle exec puma -C config/puma.rb -e production
+    #command: bundle exec puma -C config/puma.rb
 # ======================================
     volumes:
       - .:/app
