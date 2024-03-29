@@ -1,53 +1,20 @@
-# ベースとして使用するイメージ名（DockerHubからダウンロードされる）
-FROM ruby:3.2.2-alpine
+FROM ruby:2.7
 
-ENV RAILS_ENV="production"
-ENV NODE_ENV="production"
+# Yarnのレポジトリを有効化。レポジトリのGPGキーをcurlコマンドを使って取得する(debianはubuntuと互換性がある)
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 
-# 利用可能なパッケージのリストを更新するコマンドを実行
-RUN apk update
+# YarnのAPTパッケージレポジトリを自分のシステムに追加。teeコマンドを使って書き込み。
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
-# パッケージをインストールするコマンドを実行
-RUN apk add g++ make mysql-dev tzdata
+# レポジトリがシステムに加えられたらパッケージリストをアップデートしてからYarnをインストールする
+RUN apt-get update -qq
+RUN apt-get install -y nodejs yarn
 
-# コンテナを起動した時の作業ディレクトリを/appにする
-WORKDIR /rails-practice
+# Dockerコンテナ上の作業ディレクトリ
+WORKDIR /app
 
-RUN apk add --no-cache -t .build-dependencies \
-    build-base \
-    libxml2-dev\
-    libxslt-dev \
- && apk add --no-cache \
-    bash \
-    file \
-    imagemagick \
-    libpq \
-    libxml2 \
-    libxslt \
-    nodejs \
-    postgresql-dev \
-    tini \
-    tzdata \
-    yarn \
- && gem install bundler:2.1.4 \
- && bundle install -j$(getconf _NPROCESSORS_ONLN) 
-#  && bundle config set --localdeployment 'true'
-#  && bundle config set --local
-#  && apk del --purge .build-dependencies
+# ローカル開発環境の./src配下の内容をDockerコンテナ上の/appにコピー
+COPY ./src /app
 
- # アプリケーションコードのコピー
-COPY . /app
-
-# アセットのプリコンパイル
-RUN SECRET_KEY_BASE=placeholder bundle exec rails assets:precompile \
- && yarn cache clean \
- && rm -rf node_modules tmp/cache
-
-# COPY start.sh /start.sh
-# RUN chmod 744 /start.sh
-# CMD ["sh", "/start.sh"]
-
-ENV RAILS_SERVE_STATIC_FILES="true"
-ENTRYPOINT ["/sbin/tini", "--"]
-CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "3000"]
-EXPOSE 3000
+# gemファイルのインストール
+RUN bundle config --local set path 'vendor/bundle' && bundle install
