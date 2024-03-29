@@ -14,7 +14,7 @@ RUN apt-get install -y nodejs yarn
 WORKDIR /app
 
 # ローカル開発環境の./src配下の内容をDockerコンテナ上の/appにコピー
-COPY ./app /app
+COPY ./rails-practice /app
 
 # gemファイルのインストール
 RUN bundle config --local set path 'vendor/bundle' && bundle install
