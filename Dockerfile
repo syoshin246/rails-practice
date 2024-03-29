@@ -33,7 +33,7 @@ RUN apk add --no-cache -t .build-dependencies \
  && bundle install -j$(getconf _NPROCESSORS_ONLN) 
 #  && bundle config set --localdeployment 'true'
 #  && bundle config set --local
- && apk del --purge .build-dependencies
+#  && apk del --purge .build-dependencies
 
  # アプリケーションコードのコピー
 COPY . /app
