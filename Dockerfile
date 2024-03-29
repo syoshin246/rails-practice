@@ -1,4 +1,4 @@
-FROM ruby:2.7
+FROM ruby:3.2.2
 
 # Yarnのレポジトリを有効化。レポジトリのGPGキーをcurlコマンドを使って取得する(debianはubuntuと互換性がある)
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
@@ -17,4 +17,4 @@ WORKDIR /app
 COPY ./rails-practice /app
 
 # gemファイルのインストール
-RUN bundle config --local set path 'vendor/bundle' && bundle install
+RUN bundle config --local set path 'vendor/bundle' && bundle install -v 2.1.4
