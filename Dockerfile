@@ -30,7 +30,9 @@ RUN apk add --no-cache -t .build-dependencies \
     tzdata \
     yarn \
  && gem install bundler:2.1.4 \
- && bundle install -j$(getconf _NPROCESSORS_ONLN) --deployment --without test development \
+ && bundle install -j$(getconf _NPROCESSORS_ONLN) 
+ && bundle config set --localdeployment 'true'
+ && bundle config set --local
  && apk del --purge .build-dependencies
 
  # アプリケーションコードのコピー
