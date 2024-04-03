@@ -1,4 +1,4 @@
-FROM ruby:3.2.2
+FROM ruby:2.7.8
 
 # Yarnのレポジトリを有効化。レポジトリのGPGキーをcurlコマンドを使って取得する(debianはubuntuと互換性がある)
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
