@@ -1,4 +1,4 @@
-FROM ruby:2.7.8
+FROM ruby:3.2.2-alpine
 
 # Yarnのレポジトリを有効化。レポジトリのGPGキーをcurlコマンドを使って取得する(debianはubuntuと互換性がある)
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
@@ -14,9 +14,11 @@ RUN apt-get install -y nodejs yarn
 WORKDIR /app
 
 # ローカル開発環境の./src配下の内容をDockerコンテナ上の/appにコピー
-COPY . /app
+COPY Gemfile .
 
 # gemファイルのインストール
 RUN bundle config --local set path 'vendor/bundle' && bundle install
 
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "3000"]
+
+RUN rm -rf /app/rails-practice/tmp
