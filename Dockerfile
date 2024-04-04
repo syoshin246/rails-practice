@@ -1,24 +1,24 @@
 FROM ruby:3.2.2-alpine
 
-# Yarnのレポジトリを有効化。レポジトリのGPGキーをcurlコマンドを使って取得する(debianはubuntuと互換性がある)
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+# curlをインストール
+RUN apk add --no-cache curl
 
-# YarnのAPTパッケージレポジトリを自分のシステムに追加。teeコマンドを使って書き込み。
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+# curlを使ってYarnのGPGキーを取得し、インポート
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --import -
 
-# レポジトリがシステムに加えられたらパッケージリストをアップデートしてからYarnをインストールする
-RUN apt-get update -qq
-RUN apt-get install -y nodejs yarn
+# Yarnのリポジトリを追加
+RUN apk add --no-cache yarn
 
-# Dockerコンテナ上の作業ディレクトリ
+# パッケージリストをアップデートしてからNode.jsとYarnをインストール
+RUN apk add --no-cache nodejs
+
+# 作業ディレクトリを設定
 WORKDIR /app
 
-# ローカル開発環境の./src配下の内容をDockerコンテナ上の/appにコピー
+# GemfileをコピーしてGemをインストール
 COPY Gemfile .
+COPY Gemfile.lock .
+RUN bundle install
 
-# gemファイルのインストール
-RUN bundle config --local set path 'vendor/bundle' && bundle install
-
+# コンテナの起動時のコマンドを設定
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "3000"]
-
-RUN rm -rf /app/rails-practice/tmp
