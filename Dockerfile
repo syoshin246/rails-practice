@@ -3,8 +3,9 @@ FROM ruby:3.2.2-alpine
 # curlをインストール
 RUN apk add --no-cache curl
 
-# curlを使ってYarnのGPGキーを取得し、インポート
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --import -
+# Yarnの公開鍵を直接ダウンロードしてインポート
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apk add --virtual .gnupg-deps gnupg && \
+    apk del .gnupg-deps
 
 # Yarnのリポジトリを追加
 RUN apk add --no-cache yarn
