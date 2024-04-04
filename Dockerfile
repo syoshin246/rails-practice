@@ -1,5 +1,8 @@
 FROM ruby:3.2.2-alpine
 
+# 必要なパッケージをインストール
+RUN apk add --no-cache build-base
+
 # curlをインストール
 RUN apk add --no-cache curl
 
@@ -10,7 +13,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apk add --virtual .gnupg
 # Yarnのリポジトリを追加
 RUN apk add --no-cache yarn
 
-# パッケージリストをアップデートしてからNode.jsとYarnをインストール
+# パッケージリストをアップデートしてからNode.jsをインストール
 RUN apk add --no-cache nodejs
 
 # 作業ディレクトリを設定
