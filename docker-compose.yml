@@ -6,10 +6,10 @@ services:
     environment:
       SECRET_KEY_BASE: "ango;J`OJ'#eg4789\/[hk@"
       RAILS_ENV: production
-    command: >
-      sh -c "
-             bundle exec puma -C config/puma.rb"
-#bundle exec rails assets:precompile &&
+    # command: >
+    #   sh -c "bundle exec rails assets:precompile &&
+    #          bundle exec puma -C config/puma.rb"
+      command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/app
     ports:
