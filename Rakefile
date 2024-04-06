@@ -4,3 +4,10 @@
 require_relative "config/application"
 
 Rails.application.load_tasks
+
+namespace :assets do
+  desc 'Precompile assets'
+  task :precompile do
+    Rake::Task['assets:precompile'].invoke
+  end
+end
