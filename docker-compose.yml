@@ -1,13 +1,15 @@
 version: "3"
 services:
+  #サービス名
   web:
     build: .  # ビルドパスを修正
     environment:
       SECRET_KEY_BASE: "ango;J`OJ'#eg4789\/[hk@"
       RAILS_ENV: production
     command: >
-      sh -c "bundle exec rails assets:precompile &&
+      sh -c "
              bundle exec puma -C config/puma.rb"
+#bundle exec rails assets:precompile &&
     volumes:
       - .:/app
     ports:
