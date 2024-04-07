@@ -24,8 +24,6 @@ COPY Gemfile .
 COPY Gemfile.lock .
 RUN bundle install
 
-# Precompile assets
-RUN RAILS_ENV=production bundle exec rails assets:precompile
 
 # コンテナの起動時のコマンドを設定
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "3000"]
